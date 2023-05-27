@@ -32,7 +32,9 @@
             android:value="2" />
        <activity
            android:name=".YourKotlinActivity"
+           android:theme="@style/AppTheme.NoActionBar"
            android:exported="true">
+
        </activity>
 
    </application>
