@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -19,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -26,37 +28,32 @@ import androidx.compose.ui.unit.sp
 import com.example.test_app.ui.theme.LearnFunTheme
 
 
-
-
-class YourKotlinActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-        // Set up Jetpack Compose content using ComposeView
-        val composeView = ComposeView(this)
-
-        composeView.setContent {
-            LearnFunTheme(content = {
-                GreetingImage("a","b")
-            }, topAppBar = {
+class YourKotlinActivity : BaseComposeActivity() {
+    @Composable
+    override fun SetView() {
+        LearnFunTheme(
+            content = {
+                Surface(color = MaterialTheme.colors.background) {
+                    GreetingImage(
+                        stringResource(R.string.happy_birthday_text),
+                        stringResource(R.string.signature_text)
+                    )
+                }
+            },
+            topAppBar = {
                 TopAppBar(
                     title = {
-                        Text(text = "My App")
+                        Text(text = stringResource(R.string.app_title))
                     },
                     backgroundColor = MaterialTheme.colors.primary
                 )
-            } )
+            },
+        )
 
-
-        }
-
-        setContentView(composeView)
     }
 
 
 }
-
 
 
 @Composable
@@ -78,7 +75,8 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
             color = Color.Red,
             modifier = Modifier
                 .padding(16.dp)
-                .align(alignment = Alignment.End)
+                .align(alignment = Alignment.CenterHorizontally)
+
 
         )
     }
@@ -105,18 +103,25 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 }
 
 
-
 @Preview(showBackground = true)
 @Composable
-fun  YourKotlinActivityPreview(){
-    LearnFunTheme(content = {
-        GreetingImage("a","b")
-    }, topAppBar = {
-        TopAppBar(
-            title = {
-                Text(text = "My App")
-            },
-            backgroundColor = MaterialTheme.colors.primary
-        )
-    } )
+fun YourKotlinActivityPreview() {
+    LearnFunTheme(
+        content = {
+            Surface(color = MaterialTheme.colors.background) {
+                GreetingImage(
+                    stringResource(R.string.happy_birthday_text),
+                    stringResource(R.string.signature_text)
+                )
+            }
+        },
+        topAppBar = {
+            TopAppBar(
+                title = {
+                    Text(text = stringResource(R.string.app_title))
+                },
+                backgroundColor = MaterialTheme.colors.primary
+            )
+        },
+    )
 }

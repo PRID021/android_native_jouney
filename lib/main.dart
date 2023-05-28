@@ -20,11 +20,10 @@ class MyApp extends StatelessWidget {
     }
   }
 
-  void startListening(){
+  void startListening() {
     _evenChannel.receiveBroadcastStream().listen((event) {
       print('Received event : $event');
-
-    },onError: (dynamic error){
+    }, onError: (dynamic error) {
       print('Received error: ${error.message}');
     });
   }
@@ -43,12 +42,40 @@ class MyApp extends StatelessWidget {
               ElevatedButton(
                 onPressed: () =>
                     startActivity('com.example.test_app.YourKotlinActivity'),
-                child: const Text('Open Kotlin Activity'),
+                child: const Text('Open YourKotlin Activity'),
               ),
-              const SizedBox(height: 8,),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => startActivity(
+                    'com.example.test_app.ComposeArticleActivity'),
+                child: const Text('Open ComposeArticle Activity'),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 onPressed: () =>
-                    startListening(),
+                    startActivity('com.example.test_app.QuadrantActivity'),
+                child: const Text('Open QuadrantActivity Activity'),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () =>
+                    startActivity('com.example.test_app.TaskManageActivity'),
+                child: const Text('Open TaskManageActivity Activity'),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => startListening(),
                 child: const Text('Start listening on event channel'),
               ),
             ],

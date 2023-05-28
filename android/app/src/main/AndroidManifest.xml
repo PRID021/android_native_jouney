@@ -32,9 +32,22 @@
             android:value="2" />
        <activity
            android:name=".YourKotlinActivity"
-           android:theme="@style/AppTheme.NoActionBar"
+           android:theme="@style/BirthdayTheme"
            android:exported="true">
-
+       </activity>
+       <activity
+           android:name=".ComposeArticleActivity"
+           android:theme="@style/BirthdayTheme"
+           android:exported="true">
+       </activity>
+       <activity
+           android:name=".QuadrantActivity"
+           android:theme="@style/BirthdayTheme"
+           android:exported="true">
+       </activity>       <activity
+           android:name=".TaskManageActivity"
+           android:theme="@style/BirthdayTheme"
+           android:exported="true">
        </activity>
 
    </application>

@@ -71,23 +71,7 @@ class MainActivity: FlutterActivity() {
 
     }
 
-//    private fun createEventSink(): EventChannel.EventSink? {
-//        return object:EventChannel.EventSink{
-//            override fun success(event: Any?) {
-//                // Check if the event sink is set
-//                eventSink?.success(event)
-//            }
-//
-//            override fun error(errorCode: String?, errorMessage: String?, errorDetails: Any?) {
-//                eventSink?.error(errorCode,errorMessage,errorDetails)
-//            }
-//
-//            override fun endOfStream() {
-//              eventSink?.endOfStream()
-//            }
-//
-//        }
-//    }
+
 
     private fun startKotlinActivity(activityClass: Class<*>?) {
         val intent = Intent(this,activityClass)
